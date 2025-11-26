@@ -22,6 +22,17 @@ public class LinkedList {
         this.length = 1;
     }
 
+    public void prepend(int value) {
+        Node newNode = new Node(value);
+
+        newNode.next = this.head;
+        if (this.length == 0) {
+            this.tail = newNode;
+        }
+        this.head = newNode;
+        this.length++;
+    }
+
     public Node removeLast() {
         Node tmp = this.head;
 
