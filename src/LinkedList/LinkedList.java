@@ -24,6 +24,31 @@ public class LinkedList {
         length++;
     }
 
+    public boolean insert(int index, int value) {
+        Node newNode = new Node(value);
+
+        if (index < 0 || index > length) {
+            return false;
+        }
+
+        if (index == 0) {
+            this.prepend(value);
+            return true;
+        }
+
+        int c = 1;
+        Node tmp = head;
+        while (c < index) {
+            tmp = tmp.next;
+            c++;
+        }
+
+        newNode.next = tmp.next;
+        tmp.next = newNode;
+
+        return true;
+    }
+
     public boolean set(int index, int value) {
 
         Node node = get(index);
