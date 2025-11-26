@@ -6,15 +6,6 @@ public class LinkedList {
     private Node tail;
     private int length;
 
-    class Node {
-        int value;
-        Node next;
-
-        Node(int value) {
-            this.value = value;
-        }
-    }
-
     public LinkedList(int value) {
         Node newNode = new Node(value);
         head = newNode;
@@ -31,6 +22,18 @@ public class LinkedList {
         }
         head = newNode;
         length++;
+    }
+
+    public Node get(int index) {
+        if (length == 0 || index > length || index < 1) return null;
+
+        int c = 1;
+        Node tmp = head;
+        while(c != index) {
+            tmp = tmp.next;
+            c++;
+        }
+        return tmp;
     }
     
     public Node removeFirst() {
