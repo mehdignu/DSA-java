@@ -24,6 +24,16 @@ public class LinkedList {
         length++;
     }
 
+    public boolean set(int index, int value) {
+
+        Node node = get(index);
+        if (node != null){
+            node.value = value;
+            return true;
+        }
+        return false;
+    }
+
     public Node get(int index) {
         if (length == 0 || index > length || index < 1) return null;
 

@@ -5,6 +5,6 @@ void main() {
     ll.append(5);
     ll.append(6);
     ll.prepend(3);
+    ll.set(1,91);
     ll.printList();
-    System.out.println(ll.get(1).getValue());
 }
