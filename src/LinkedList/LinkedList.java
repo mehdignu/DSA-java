@@ -22,6 +22,28 @@ public class LinkedList {
         this.length = 1;
     }
 
+    public Node removeLast() {
+        Node tmp = this.head;
+
+        if (this.length == 0) return tmp;
+
+        if (this.length == 1) {
+            this.head = null;
+            this.tail = null;
+            this.length -= 1;
+            return tmp;
+        }
+
+        while (tmp.next != this.tail) {
+            tmp = tmp.next;
+        }
+        Node res = this.tail;
+        this.tail = tmp;
+        tail.next = null;
+        this.length -= 1;
+        return res;
+    }
+
     public void append(int value) {
         Node newNode = new Node(value);
 
