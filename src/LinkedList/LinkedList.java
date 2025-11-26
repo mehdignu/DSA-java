@@ -17,59 +17,76 @@ public class LinkedList {
 
     public LinkedList(int value) {
         Node newNode = new Node(value);
-        this.head = newNode;
-        this.tail = newNode;
-        this.length = 1;
+        head = newNode;
+        tail = newNode;
+        length = 1;
     }
 
     public void prepend(int value) {
         Node newNode = new Node(value);
 
-        newNode.next = this.head;
-        if (this.length == 0) {
-            this.tail = newNode;
+        newNode.next = head;
+        if (length == 0) {
+            tail = newNode;
         }
-        this.head = newNode;
-        this.length++;
+        head = newNode;
+        length++;
     }
-
-    public Node removeLast() {
-        Node tmp = this.head;
-
-        if (this.length == 0) return tmp;
-
-        if (this.length == 1) {
-            this.head = null;
-            this.tail = null;
-            this.length -= 1;
+    
+    public Node removeFirst() {
+        Node tmp = head;
+        
+        if (length == 0) return tmp;
+        
+        if (length == 1) {
+            head = null;
+            tail = null;
+            length--;
             return tmp;
         }
 
-        while (tmp.next != this.tail) {
+        head = head.next;
+        tmp.next = null;
+        return tmp;
+    }
+
+    public Node removeLast() {
+        Node tmp = head;
+
+        if (length == 0) return tmp;
+
+        if (length == 1) {
+            head = null;
+            tail = null;
+            length--;
+            return tmp;
+        }
+
+        while (tmp.next != tail) {
             tmp = tmp.next;
         }
-        Node res = this.tail;
-        this.tail = tmp;
+        Node res = tail;
+        tail = tmp;
         tail.next = null;
-        this.length -= 1;
+        length--;
         return res;
     }
 
     public void append(int value) {
         Node newNode = new Node(value);
 
-        if (this.length == 0){
-            this.head = newNode;
-            this.tail = newNode;
+        if (length == 0){
+            head = newNode;
+            tail = newNode;
         } else {
-            this.tail.next = newNode;
-            this.tail = newNode;
+            tail.next = newNode;
+            tail = newNode;
         }
         length++;
     }
 
     public void printList() {
-        Node tmp = this.head;
+        Node tmp = head;
 
         while (tmp != null) {
             System.out.println(tmp.value);

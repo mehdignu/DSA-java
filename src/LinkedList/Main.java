@@ -5,5 +5,8 @@ void main() {
     ll.append(5);
     ll.append(6);
     ll.prepend(3);
+    ll.removeFirst();
+    ll.removeFirst();
+    ll.removeFirst();
     ll.printList();
 }
