@@ -45,6 +45,7 @@ public class LinkedList {
 
         newNode.next = tmp.next;
         tmp.next = newNode;
+        length++;
 
         return true;
     }
