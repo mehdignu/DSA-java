@@ -60,10 +60,35 @@ public class LinkedList {
         return false;
     }
 
-    public Node get(int index) {
-        if (length == 0 || index > length || index < 1) return null;
+    public Node remove(int index) {
+        if (index > length || index < 0) return null;
 
-        int c = 1;
+        Node tmp = get(index);
+
+        if (index == 0){
+            head = head.next;
+            tmp.next = null;
+            return tmp;
+        }
+
+        Node before = get(index-1);
+
+        if (index == length) {
+            before.next = null;
+            tail = before;
+            return tmp;
+        }
+
+        before.next = tmp.next;
+        tmp.next = null;
+        return tmp;
+
+    }
+
+    public Node get(int index) {
+        if ( index > length || index < 0) return null;
+
+        int c = 0;
         Node tmp = head;
         while(c != index) {
             tmp = tmp.next;
