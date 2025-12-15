@@ -1,8 +1,10 @@
-public class Node {
-	int value;
-	Node next;
 
-	Node(int value) {
+public class DLLNode {
+	int value;
+	DLLNode next;
+	DLLNode prev;
+
+	DLLNode(int value) {
 		this.value = value;
 	}
 
