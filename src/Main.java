@@ -6,10 +6,7 @@ public class Main {
 
 		dll.prepend(60);
 		dll.prepend(8);
-		dll.removeFirst();
-		dll.removeFirst();
-
-		System.out.println(dll.Get(0).value);
-
+		dll.Insert(1, 10);
+		dll.printList();
 	}
 }

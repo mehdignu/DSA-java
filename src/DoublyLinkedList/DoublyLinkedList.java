@@ -118,6 +118,35 @@ public class DoublyLinkedList {
 		}
 	}
 
+	public boolean Insert(int index, int value) {
+		if (index > length || index < 0) {
+			return false;
+		}
+
+		if (index == length) {
+			append(value);
+			return true;
+		}
+
+		if (index == 0) {
+			prepend(value);
+			return true;
+		}
+
+		DLLNode newNode = new DLLNode(value);
+		DLLNode before = Get(index - 1);
+		DLLNode after = before.next;
+
+		before.next = newNode;
+		newNode.prev = before;
+
+		after.prev = newNode;
+		newNode.next = after;
+		length++;
+		return true;
+
+	}
+
 	public void printList() {
 		for (int i = 0; i < length; i++) {
 			System.out.println(head.value);
