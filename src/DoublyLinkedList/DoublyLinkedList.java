@@ -108,6 +108,16 @@ public class DoublyLinkedList {
 
 	}
 
+	public boolean Set(int index, int value) {
+		DLLNode tmp = Get(index);
+		if (tmp != null) {
+			tmp.value = value;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public void printList() {
 		for (int i = 0; i < length; i++) {
 			System.out.println(head.value);
