@@ -26,13 +26,22 @@ public class Stack {
 
 		if (height == 0) {
 			top = stackNode;
-			height++;
 		} else {
 			stackNode.next = top;
 			top = stackNode;
-			height++;
 		}
+		height++;
+	}
 
+	public Node pop() {
+		if (top == null)
+			return null;
+
+		Node tmp = top;
+		top = top.next;
+		tmp.next = null;
+		height--;
+		return tmp;
 	}
 
 	public void printStack() {
