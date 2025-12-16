@@ -1,12 +1,13 @@
+package linkedlist;
+
 public class Main {
 	public static void main(String[] args) {
-		DoublyLinkedList dll = new DoublyLinkedList(7);
+		LinkedList dll = new LinkedList(7);
 		dll.append(2);
 		dll.append(3);
-
-		dll.prepend(60);
-		dll.prepend(8);
-		dll.Insert(1, 10);
+		dll.append(60);
+		dll.append(8);
+		dll.remove(2);
 		dll.printList();
 	}
 }

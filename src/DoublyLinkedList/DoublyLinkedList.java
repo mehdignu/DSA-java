@@ -1,11 +1,13 @@
+package doublylinkedlist;
+
 public class DoublyLinkedList {
 
-	private DLLNode head;
-	private DLLNode tail;
+	private Node head;
+	private Node tail;
 	private int length;
 
 	public DoublyLinkedList(int value) {
-		DLLNode node = new DLLNode(value);
+		Node node = new Node(value);
 		head = node;
 		tail = node;
 		length = 1;
@@ -16,7 +18,7 @@ public class DoublyLinkedList {
 	}
 
 	public void append(int value) {
-		DLLNode dllNode = new DLLNode(value);
+		Node dllNode = new Node(value);
 
 		if (length == 0) {
 			head = dllNode;
@@ -30,20 +32,20 @@ public class DoublyLinkedList {
 		length++;
 	}
 
-	public DLLNode removeLast() {
+	public Node removeLast() {
 		if (length == 0) {
 			return null;
 		}
 
 		if (length == 1) {
-			DLLNode tmp = head;
+			Node tmp = head;
 			head = null;
 			tail = null;
 			length--;
 			return tmp;
 		}
 
-		DLLNode tmp = tail;
+		Node tmp = tail;
 		tail = tmp.prev;
 		tail.next = null;
 		tmp.prev = null;
@@ -52,7 +54,7 @@ public class DoublyLinkedList {
 	}
 
 	public void prepend(int value) {
-		DLLNode newNode = new DLLNode(value);
+		Node newNode = new Node(value);
 
 		if (length == 0) {
 			head = newNode;
@@ -67,11 +69,11 @@ public class DoublyLinkedList {
 		length++;
 	}
 
-	public DLLNode removeFirst() {
+	public Node removeFirst() {
 		if (length == 0) {
 			return null;
 		}
-		DLLNode tmp = head;
+		Node tmp = head;
 		if (length == 1) {
 			head = null;
 			tail = null;
@@ -86,12 +88,12 @@ public class DoublyLinkedList {
 		return tmp;
 	}
 
-	public DLLNode Get(int index) {
+	public Node Get(int index) {
 		if (index >= length || index < 0) {
 			return null;
 		}
 
-		DLLNode tmp = head;
+		Node tmp = head;
 		if (index / 2 < length) {
 			for (int i = 0; i < index; i++) {
 				tmp = tmp.next;
@@ -109,7 +111,7 @@ public class DoublyLinkedList {
 	}
 
 	public boolean Set(int index, int value) {
-		DLLNode tmp = Get(index);
+		Node tmp = Get(index);
 		if (tmp != null) {
 			tmp.value = value;
 			return true;
@@ -133,9 +135,9 @@ public class DoublyLinkedList {
 			return true;
 		}
 
-		DLLNode newNode = new DLLNode(value);
-		DLLNode before = Get(index - 1);
-		DLLNode after = before.next;
+		Node newNode = new Node(value);
+		Node before = Get(index - 1);
+		Node after = before.next;
 
 		before.next = newNode;
 		newNode.prev = before;
@@ -144,6 +146,29 @@ public class DoublyLinkedList {
 		newNode.next = after;
 		length++;
 		return true;
+
+	}
+
+	public Node remove(int index) {
+		if (index < 0 || index >= length) {
+			return null;
+		}
+
+		Node node = Get(index);
+
+		if (index == 0) {
+			return removeFirst();
+		}
+
+		if (index == length - 1) {
+			return removeLast();
+		}
+		node.next.prev = node.prev;
+		node.prev.next = node.next;
+		node.next = null;
+		node.prev = null;
+		length--;
+		return node;
 
 	}
 

@@ -1,10 +1,11 @@
+package doublylinkedlist;
 
-public class DLLNode {
+public class Node {
 	int value;
-	DLLNode next;
-	DLLNode prev;
+	Node next;
+	Node prev;
 
-	DLLNode(int value) {
+	Node(int value) {
 		this.value = value;
 	}
 
