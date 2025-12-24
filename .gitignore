@@ -207,3 +207,7 @@ flycheck_*.el
 # Emacs autosaves (often wrapped in #)
 \#*\#
 .#*
+
+# Projectile (Emacs project management)
+.projectile
+.projectile-cache.eld
