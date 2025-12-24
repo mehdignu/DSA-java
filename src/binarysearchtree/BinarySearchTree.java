@@ -4,8 +4,6 @@ public class BinarySearchTree {
 	Node root;
 
 	public boolean contains(int value) {
-		if (root == null)
-			return false;
 
 		Node tmp = root;
 
