@@ -13,6 +13,7 @@ public class Main {
 		BST.insert(27);
 
 		System.out.println(BST.root.left.right.value);
+		System.out.println(BST.contains(76));
 
 	}
 }
