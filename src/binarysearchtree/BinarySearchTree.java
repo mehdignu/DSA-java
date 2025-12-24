@@ -10,12 +10,12 @@ public class BinarySearchTree {
 		Node tmp = root;
 
 		while (tmp != null) {
-			if (tmp.value == value)
-				return true;
 			if (tmp.value < value) {
 				tmp = tmp.right;
-			} else {
+			} else if (tmp.value > value) {
 				tmp = tmp.left;
+			} else {
+				return true;
 			}
 		}
 
