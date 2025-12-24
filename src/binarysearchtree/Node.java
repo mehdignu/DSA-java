@@ -2,8 +2,8 @@ package binarysearchtree;
 
 class Node {
 	int value;
-	Node Left;
-	Node Right;
+	Node left;
+	Node right;
 
 	Node(int value) {
 		this.value = value;
