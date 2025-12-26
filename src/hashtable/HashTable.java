@@ -1,6 +1,19 @@
 package hashtable;
 
 public class HashTable {
+
+	class Node {
+		public String key;
+		public int value;
+		public Node next;
+
+		public Node(String key, int value) {
+			this.key = key;
+			this.value = value;
+		}
+
+	}
+
 	private int size = 7;
 	private Node[] dataMap;
 
@@ -21,6 +34,12 @@ public class HashTable {
 			hash = (hash + asciiValue * 23) % dataMap.length;
 		}
 		return hash;
+	}
+
+	public void set(String key, int value) {
+		int index = hash(key);
+		Node node = new Node(key, value);
+
 	}
 
 	public void printTable() {

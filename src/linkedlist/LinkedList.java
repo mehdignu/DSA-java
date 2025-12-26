@@ -2,6 +2,19 @@ package linkedlist;
 
 public class LinkedList {
 
+	class Node {
+		int value;
+		Node next;
+
+		Node(int value) {
+			this.value = value;
+		}
+
+		public int getValue() {
+			return this.value;
+		}
+	}
+
 	private Node head;
 	private Node tail;
 	private int length;

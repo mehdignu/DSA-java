@@ -1,6 +1,17 @@
 package binarysearchtree;
 
 public class BinarySearchTree {
+
+	class Node {
+		int value;
+		Node left;
+		Node right;
+
+		Node(int value) {
+			this.value = value;
+		}
+	}
+
 	Node root;
 
 	public boolean contains(int value) {

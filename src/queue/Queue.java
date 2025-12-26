@@ -2,6 +2,15 @@ package queue;
 
 public class Queue {
 
+	class Node {
+		int value;
+		Node next;
+
+		Node(int value) {
+			this.value = value;
+		}
+	}
+
 	Node first;
 	Node last;
 	private int length;
