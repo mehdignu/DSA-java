@@ -1,14 +1,5 @@
 package queue;
 
-class Node {
-	int value;
-	Node next;
-
-	Node(int value) {
-		this.value = value;
-	}
-}
-
 public class Queue {
 
 	Node first;
