@@ -1,5 +1,9 @@
 package hashtable;
 
+import java.util.ArrayList;
+
+// dealing with HasTable is O(1) under the assumption that we have a hash function that randomizes the insert
+// and a big hashtable with indexes
 public class HashTable {
 
 	class Node {
@@ -39,7 +43,44 @@ public class HashTable {
 	public void set(String key, int value) {
 		int index = hash(key);
 		Node node = new Node(key, value);
+		if (dataMap[index] == null) {
+			dataMap[index] = node;
+		} else {
+			Node tmp = dataMap[index];
+			while (tmp.next != null) {
+				tmp = tmp.next;
+			}
+			tmp.next = node;
+		}
+	}
 
+	public int get(String key) {
+		int index = hash(key);
+		if (dataMap[index] == null) {
+			return 0;
+		} else {
+			Node tmp = dataMap[index];
+			while (tmp != null) {
+				if (tmp.key == key) {
+					return tmp.value;
+				}
+				tmp = tmp.next;
+			}
+		}
+		return 0;
+	}
+
+	public ArrayList keys() {
+		ArrayList<String> al = new ArrayList<>();
+		for (int i = 0; i < dataMap.length; i++) {
+			Node tmp = dataMap[i];
+			while (tmp != null) {
+				al.add(tmp.key);
+				tmp = tmp.next;
+			}
+		}
+
+		return al;
 	}
 
 	public void printTable() {
