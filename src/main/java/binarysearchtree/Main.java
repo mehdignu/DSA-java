@@ -14,6 +14,6 @@ public class Main {
 
 		System.out.println(BST.root.left.right.value);
 		System.out.println(BST.contains(76));
-
+		System.out.println(BST.rContains(76));
 	}
 }
