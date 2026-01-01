@@ -10,6 +10,7 @@ class Node {
 
 }
 
+// LIFO: think of it like a stack of tennis balls
 public class Stack {
 
 	private Node top;
