@@ -36,6 +36,24 @@ public class BinarySearchTree {
 		return results;
 	}
 
+	public ArrayList<Integer> DFSPreOrder() {
+		ArrayList<Integer> results = new ArrayList<>();
+
+		class Traverse {
+			Traverse(Node currentNode) {
+				results.add(currentNode.value);
+				if (currentNode.left != null) {
+					new Traverse(currentNode.left);
+				}
+				if (currentNode.right != null) {
+					new Traverse(currentNode.right);
+				}
+			}
+		}
+		new Traverse(root);
+		return results;
+	}
+
 	private Node rInsert(Node currentNode, int value) {
 		if (currentNode == null)
 			return new Node(value);
